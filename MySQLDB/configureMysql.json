@@ -1,0 +1,7 @@
+{
+    "name":"pz3_5",
+    "login":"root",
+    "password":"1111",
+    "dialect": "mysql",
+    "host": "localhost"
+}
