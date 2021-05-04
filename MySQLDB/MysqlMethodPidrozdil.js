@@ -9,7 +9,7 @@ const InsertPidrozdil = (obj) =>{
 }
 const DeletePidrozdil = (id) =>{
     try {
-        Pidrozdil.destroy({where:{id:id}})
+        Pidrozdil.destroy({where:{id}})
     } catch (error) {
         console.log(error);
     }

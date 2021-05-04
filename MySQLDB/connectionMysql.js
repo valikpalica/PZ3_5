@@ -7,11 +7,4 @@ const sequelize = new Sequlize(config.name,config.login,config.password,{
         timestamps: false
     }
 });
-try {
-    sequelize.sync({alert:true}).then(()=>{
-        console.log("Mysql DB connected");
-})
-} catch (error) {
-    console.log(error);
-}
 module.exports = sequelize;

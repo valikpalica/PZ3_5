@@ -1,7 +1,8 @@
 const sequelize = require('./connectionMysql');
 const Sequelize = require('sequelize');
+const Posada = require('./modelPosada');
 const Pidrozdil = sequelize.define('Pidrozdil',{
-    id:{
+    id_pidrozdil:{
         type: Sequelize.INTEGER,
         primatyKey:true,
         allownull:false,
@@ -11,6 +12,5 @@ const Pidrozdil = sequelize.define('Pidrozdil',{
         allownull:false,
     }
 });
-
-
+Pidrozdil.hasMany(Posada,{onDelete:'cascade', foreignKey:'id_pidrozdil'})
 module.exports = Pidrozdil;

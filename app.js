@@ -16,7 +16,7 @@ app.listen(port, ()=>{
     console.log(`server has been started on port ${port}`);
     try {
         require('./MongoDB/mconnectionMongoDB');
-        require('./MySQLDB/connectionMysql');
+        require('./MySQLDB/synchronizeDB');
     } catch (error) {
         console.log(error);
     }

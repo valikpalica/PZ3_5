@@ -1,4 +1,6 @@
 const Workers = require('./modelWorker');
+const Posada = require('./modelPosada');
+const Pidrozdil = require('./modelPidrozdil');
 
 const InsertWorkers = (obj)=>{
     try {
@@ -31,9 +33,31 @@ const DeleteInfo = (id,option) =>{
 const SelectWorkers = async () =>{
     try {
       let workers = await Workers.findAll({raw:true});
-      return Workers;
+      return workers;
     } catch (error) {
         console.log(error);
     }
 }
-module.exports = {}
+const SelectAllInfo = async (id) =>{
+    try {
+        const infoPerson = await Workers.findOne({where:{
+                id:id
+        },
+        include:[{
+            model:Posada,
+            where:{
+                id_posada:id_worker
+            }
+        },{
+            model:Pidrozdil,
+            where:{
+                id_pidrozdil:id_worker
+            }
+        }]
+    });
+    return infoPerson;
+    } catch (error) {
+        console.log(error);
+    }
+}
+module.exports = {InsertWorkers,DeleteWorker,Update,DeleteInfo,SelectWorkers,SelectAllInfo};

@@ -1,7 +1,8 @@
 const sequelize = require('./connectionMysql');
 const Sequelize = require('sequelize');
+const Posada = require('./modelPosada');
 const Workers = sequelize.define('Workers',{
-    id:{
+    id_worker:{
         type: Sequelize.INTEGER,
         primatyKey:true,
         allownull:false,
@@ -27,6 +28,5 @@ const Workers = sequelize.define('Workers',{
         allowNull: false
     },
 });
-
-
+Workers.hasMany(Posada,{onDelete:'cascade', foreignKey:'id_worker'})
 module.exports = Workers;

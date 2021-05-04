@@ -1,7 +1,7 @@
-const sequelize = require('./connectionMysql');
 const Sequelize = require('sequelize');
+const sequelize = require('./connectionMysql');
 const Posada = sequelize.define('Posada',{
-    id:{
+    id_posada:{
         type: Sequelize.INTEGER,
         primatyKey:true,
         allownull:false,
@@ -10,7 +10,7 @@ const Posada = sequelize.define('Posada',{
         type:Sequelize.STRING,
         allownull:false,
     },
-    id_posada:{
+    id_worker:{
         type:Sequelize.INTEGER,
         allownull:false,
     },
@@ -19,6 +19,5 @@ const Posada = sequelize.define('Posada',{
         allownull:false,
     }
 });
-
 
 module.exports = Posada;
