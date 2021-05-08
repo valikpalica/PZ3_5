@@ -2,9 +2,9 @@ const sequelize = require('./connectionMysql');
 const Sequelize = require('sequelize');
 const Posada = require('./modelPosada');
 const Workers = sequelize.define('Workers',{
-    id_worker:{
+    id:{
         type: Sequelize.INTEGER,
-        primatyKey:true,
+        primaryKey:true,
         allownull:false,
     },
     name:{

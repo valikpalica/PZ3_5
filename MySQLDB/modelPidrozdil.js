@@ -2,10 +2,11 @@ const sequelize = require('./connectionMysql');
 const Sequelize = require('sequelize');
 const Posada = require('./modelPosada');
 const Pidrozdil = sequelize.define('Pidrozdil',{
-    id_pidrozdil:{
+    id:{
         type: Sequelize.INTEGER,
-        primatyKey:true,
+        primaryKey:true,
         allownull:false,
+        
     },
     name:{
         type:Sequelize.STRING,

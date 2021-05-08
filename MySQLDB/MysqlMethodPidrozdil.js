@@ -14,11 +14,19 @@ const DeletePidrozdil = (id) =>{
         console.log(error);
     }
 }
-const UpdatePidrozdil = (id,obj) =>{
+const UpdatePidrozdilMysql = (id,obj) =>{
     try {
-        Pidrozdil.update({obj},{where:id});
+        Pidrozdil.update(obj,{where:{id:id}});
     } catch (error) {
         console.log(error);
     }
 }
-module.exports = {InsertPidrozdil,DeletePidrozdil,UpdatePidrozdil}
+const Select = async () => {
+    try {
+        let body  = await Pidrozdil.findAll({raw:true})
+        return body;
+    } catch (error) {
+        console.log(error);
+    }
+}
+module.exports = {InsertPidrozdil,DeletePidrozdil,UpdatePidrozdilMysql,Select};

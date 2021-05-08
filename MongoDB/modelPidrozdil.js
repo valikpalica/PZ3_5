@@ -3,9 +3,7 @@ const Schema = mongoose.Schema;
 
 const pidrozdilScheme = new Schema({
     id: Number,
-    name_pidrozdil: String,
-},{
-    _id:false,
+    name: String,
 });
 
 module.exports = pidrozdilScheme;

@@ -3,11 +3,9 @@ const Schema = mongoose.Schema;
 
 const posadaScheme = new Schema({
     id: Number,
-    name_posada: String,
-    id_user:Number,
+    name: String,
+    id_worker:Number,
     id_pidrozdil:Number,
-},{
-    _id:false,
 });
 
 module.exports = posadaScheme;

@@ -15,18 +15,19 @@ const RemovePosada = (id) =>{
         console.log(error);
     }
 }
-const FindPosada = (id) => {
+const FindPosada = async () => {
     try {
-        Posada.find({id});
+       let body = await Posada.find({});
+       return body;
     } catch (error) {
         console.log(error);
     }
 }
-const UpdatePosada = (id,obj) =>{
+const UpdatePosadaMongo = (id,obj) =>{
     try {
         Posada.findByIdAndUpdate(id,obj);
     } catch (error) {
         console.log(error);
     }
 }
-module.exports = {AddPosada,RemovePosada,FindPosada,UpdatePosada};
+module.exports = {AddPosada,RemovePosada,FindPosada,UpdatePosadaMongo};

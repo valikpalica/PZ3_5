@@ -15,16 +15,17 @@ const RemovePidrozdil = (id) =>{
         console.log(error);
     }
 }
-const FindPidrozdil = (id) => {
+const FindPidrozdil = async () => {
     try {
-        Pidrozdil.find({id});
+      let body = await  Pidrozdil.find({});
+      return body;
     } catch (error) {
         console.log(error);
     }
 }
 const UpdatePidrozdil =(id,obj)=>{
     try {
-        Pidrozdil.findByIdAndUpdate(id,obj);
+        Pidrozdil.updateOne({id:id},obj);
     } catch (error) {
         console.log(error);
     }

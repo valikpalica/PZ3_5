@@ -8,9 +8,9 @@ const FindAll = async () =>{
         console.log(error);
     }
 }
-const AddWorkers = (id,name,surname,patronime,age,rank,date) =>{
+const AddWorkers = (obj) =>{
     try {
-        const worker = new Workers({id,name,surname,patronime,age,rank,date});
+        const worker = new Workers(obj);
         worker.save();
     } catch (error) {
         console.log(error);
@@ -18,21 +18,28 @@ const AddWorkers = (id,name,surname,patronime,age,rank,date) =>{
 }
 const DeleteWorkers = (id) =>{
     try {
-        Workers.deleteOne({id});
+        Workers.deleteOne({id:id},(err,result)=>{
+            if(err) throw new Error(err);
+        });
     } catch (error) {
         console.log(error);
     }
 }
 const DeleteInfoWorkers = (id,option_w) =>{
     try {
-        Workers.findByIdAndUpdate({id},{[option_w]:''},{new:true});
+        Workers.updateOne({id:id},{[option_w]:''},{new:true},(err,result)=>{
+            console.log(result);
+        });
     } catch (error) {
         console.log(error);
     }
 }
 const UpdateWorkers = (id,obj) => {
     try {
-        Workers.findByIdAndUpdate(id,obj);
+        console.log(id,obj);
+        Workers.updateOne({id:id},obj,(err,result)=>{
+            console.log(result);
+        });
     } catch (error) {
         console.log(error);
     }

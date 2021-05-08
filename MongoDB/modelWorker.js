@@ -8,8 +8,6 @@ const userScheme = new Schema({
     patronime: String,
     rank: String,
     date: String,
-},{
-    _id:false,
 });
 
 module.exports = userScheme;

@@ -14,11 +14,19 @@ const DeletePosada = (id)=>{
         console.log(error);
     }
 }
-const UpdatePosada = (obj,id)=>{
+const UpdatePosadaMysql = (obj,id)=>{
     try {
-        Posada.update(obj,{where:{id}})
+        Posada.update(obj,{where:{id:id}})
     } catch (error) {
         console.log(error);
     }
 }
-module.exports = {InsertPosada,DeletePosada,UpdatePosada};
+const Select = async () =>{
+    try {
+        let body = await Posada.findAll({raw:true});
+        return body;
+    } catch (error) {
+        console.log(error);
+    }
+}
+module.exports = {InsertPosada,DeletePosada,UpdatePosadaMysql,Select};
