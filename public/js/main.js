@@ -25,7 +25,15 @@ const createTable = (data) =>{
 }
 
 const Delete = (id) =>{
-    console.log(id);
+    fetch('/data/deleteWorker',{
+        method:'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({id})
+    }).then(()=>{
+        window.location.href = '/page/main'
+    })
 }
 const Information = (id) =>{
     window.location.href = `/page/information/${id}`;

@@ -35,6 +35,7 @@ router.get('/posadas',(req,res)=>{
 router.get('/pidrozdil',(req,res)=>{
     try {
         getPidrozdil().then(data=>{
+            console.log(data);
             res.status(200).json(data)
         });
     } catch (error) {
@@ -59,10 +60,10 @@ router.post('/addWorker',async (req,res)=>{
         res.status(400).json({answer:'error'});
     }
 })
-router.post('/addPidrozdil',(req,res)=>{
+router.post('/addPidrozdil',async (req,res)=>{
     try {
         let {name} = req.body;
-        let id = getPidrozdilId()
+        let id = await getPidrozdilId()
         InsertPid({id,name});
         res.status(200).json({answer:"ok"});
     } catch (error) {
@@ -70,10 +71,10 @@ router.post('/addPidrozdil',(req,res)=>{
         res.status(400).json({answer:'error'});
     }
 })
-router.post('/addPosada',(req,res)=>{
+router.post('/addPosada',async (req,res)=>{
     try {
         let {name,id_worker,id_pidrozdil} = req.body;
-        let id = getPosadasId();
+        let id = await getPosadasId();
         InsertPos({id,name,id_worker,id_pidrozdil});
         res.status(200).json({answer:'ok'})
     } catch (error) {
@@ -84,6 +85,7 @@ router.post('/addPosada',(req,res)=>{
 router.post('/deleteWorker',(req,res)=>{
     try {
         let {id} = req.body;
+        console.log(id);
         deleteWorker(id);
         res.status(200).json({answer:'ok'});
     } catch (error) {

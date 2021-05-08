@@ -1,6 +1,6 @@
 document.getElementById('save').addEventListener('click',()=>{
     let name = document.getElementById('name').value;
-    fetch('/data/addWorker',{
+    fetch('/data/addPidrozdil',{
         method:'POST',
         headers:{
             'Content-Type': 'application/json'
